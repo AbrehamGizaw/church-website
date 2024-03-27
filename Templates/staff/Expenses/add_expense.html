@@ -1,0 +1,80 @@
+{% extends 'staff/base.html' %}
+{% load static %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item"><a href="{% url 'staff:expense_add' %}">Expense</a></li>
+<li class="breadcrumb-item"><a href="#">Add Expense</a></li>
+{% endblock %}
+
+{% block content %}
+<!--site-main start-->
+<div class="site-main">
+    <section class="ttm-row clearfix">
+        <div class="container">
+            <div class="row pt-60 res-991-pt-0">
+                <div class="col-lg-12">
+                    <div class="pr-40 res-991-pr-0 res-991-pb-30">
+                        <!-- section-title -->
+                        <h4 class="h4-md">Add Expense</h4>
+                        <!-- section-title end -->
+
+                        <form action="{% url 'staff:expense_add' %}" method="POST" enctype="multipart/form-data" class="row">
+                            {% csrf_token %}
+
+                            <!-- Reason, Taker -->
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    {{ form.reason.label_tag }}
+                                    {{ form.reason }}
+                                    {{ form.reason.errors }}
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    {{ form.taker.label_tag }}
+                                    {{ form.taker }}
+                                    {{ form.taker.errors }}
+                                </div>
+                            </div>
+
+                            <!-- Amount, Date -->
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    {{ form.amount.label_tag }}
+                                    {{ form.amount }}
+                                    {{ form.amount.errors }}
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    {{ form.date.label_tag }}
+                                    {{ form.date }}
+                                    {{ form.date.errors }}
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="col-md-12 mb-3">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+
+                        {% if form.errors %}
+                        <div class="alert alert-danger">
+                            <strong>Error!</strong> Please correct the following issues:
+                            <ul>
+                                {% for field, error_list in form.errors.items %}
+                                {% for error in error_list %}
+                                <li>{{ field }}: {{ error }}</li>
+                                {% endfor %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

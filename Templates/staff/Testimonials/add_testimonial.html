@@ -1,0 +1,117 @@
+{% extends 'staff/base.html' %}
+{% load static %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item"><a href="{% url 'staff:testimonial_list' %}">Testimonials</a></li>
+<li class="breadcrumb-item"><a href="#">Add Testimonial</a></li>
+{% endblock %}
+
+{% block content %}
+<!--site-main start-->
+<div class="site-main">
+    <section class="ttm-row clearfix">
+        <div class="container">
+            <div class="row pt-60 res-991-pt-0">
+                <div class="col-lg-12">
+                    <div class="pr-40 res-991-pr-0 res-991-pb-30">
+                        <!-- section-title -->
+                        <h4 class="h4-md">Add Testimonial</h4>
+                        <!-- section-title end -->
+
+
+                        <form action="{% url 'staff:testimonial_add' %}" method="POST" enctype="multipart/form-data"
+                            class="row">
+
+
+                            {% csrf_token %}
+
+                            <!-- Name, Age -->
+                            <div class="col-lg-6">
+                                <div class="contact-form col-md-12 pb-2 input-patient">
+                                    {{ form.name.label_tag }}
+                                    {{ form.name }}
+                                    {{ form.name.errors }}
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="contact-form col-md-12 pb-2 input-patient">
+                                    {{ form.age.label_tag }}
+                                    {{ form.age }}
+                                    {{ form.age.errors }}
+                                </div>
+                            </div>
+
+                            <!-- Place, Image -->
+                            <div class="col-lg-6">
+                                <div class="contact-form col-md-12 pb-2 input-patient">
+                                    {{ form.place.label_tag }}
+                                    {{ form.place }}
+                                    {{ form.place.errors }}
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="contact-form col-md-12 pb-2 input-patient">
+                                    {{ form.image.label_tag }}
+                                    {{ form.image }}
+                                    {{ form.image.errors }}
+                                </div>
+                            </div>
+
+                            <!-- Contact Phone, Date Served -->
+                            <div class="col-lg-6">
+                                <div class="contact-form col-md-12 pb-2 input-patient">
+                                    {{ form.contact_phone.label_tag }}
+                                    {{ form.contact_phone }}
+                                    {{ form.contact_phone.errors }}
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="contact-form col-md-12 pb-2 input-patient">
+                                    {{ form.date_served.label_tag }}
+                                    {{ form.date_served }}
+                                    {{ form.date_served.errors }}
+                                </div>
+                            </div>
+
+                            <!-- Title, Description -->
+                            <div class="col-lg-6">
+                                <div class="contact-form col-md-12 pb-2 input-patient">
+                                    {{ form.title.label_tag }}
+                                    {{ form.title }}
+                                    {{ form.title.errors }}
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="contact-form col-md-12 pb-2 input-patient">
+                                    {{ form.description.label_tag }}
+                                    {{ form.description }}
+                                    {{ form.description.errors }}
+                                </div>
+                            </div>
+
+                            <!-- Form Submit Button -->
+                            <div class="col-md-12 contact-form col-md-12 pb-2 input-patient">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+
+                        {% if form.errors %}
+                        <div class="alert alert-danger">
+                            <strong>Error!</strong> Please correct the following issues:
+                            <ul>
+                                {% for field, error_list in form.errors.items %}
+                                {% for error in error_list %}
+                                <li>{{ field }}: {{ error }}</li>
+                                {% endfor %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

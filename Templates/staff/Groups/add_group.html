@@ -1,0 +1,71 @@
+{% extends 'staff/base.html' %}
+{% load static %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item"><a href="{% url 'staff:group_list' %}">Groups</a></li>
+<li class="breadcrumb-item"><a href="#">Add Believer</a></li>
+{% endblock %}
+
+{% block content %}
+<!-- site-main start -->
+<div class="site-main">
+    <section class="ttm-row clearfix">
+        <div class="container">
+            <div class="row pt-60 res-991-pt-0">
+                <div class="col-lg-12">
+                    <div class="pr-40 res-991-pr-0 res-991-pb-30">
+                        <h4 class="h4-md" style="margin-bottom: 30px; text-align: center;">Add Believer</h4>
+
+                        <form action="{% url 'staff:group_add' pk=form.instance.pk %}" method="POST" enctype="multipart/form-data" class="row">
+
+                            {% csrf_token %}
+
+                            <!-- Full Name -->
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    {{ form.message.label_tag }}
+                                    {{ form.message }}
+                                    {{ form.message.errors }}
+                                </div>
+                            </div>
+
+                            <!-- Image -->
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    {{ form.image.label_tag }}
+                                    {{ form.image }}
+                                    {{ form.image.errors }}
+                                </div>
+                            </div>
+                            <!-- Image -->
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    {{ form.documents.label_tag }}
+                                    {{ form.documents }}
+                                    {{ form.documents.errors }}
+                                </div>
+                            </div>
+
+
+                            <!-- Category -->
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    {{ form.group.label_tag }}
+                                    {{ form.group }}
+                                    {{ form.group.errors }}
+                                </div>
+                            </div>
+
+                           
+                            <!-- Submit Button -->
+                            <div class="col-md-12 mb-3">
+                                <button type="submit" class="btn btn-primary">Add Group</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

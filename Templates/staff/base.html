@@ -1,0 +1,338 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+  <title>{% block main_title %} Christ's Church {% endblock %}</title>
+
+  <head>
+    {% include 'staff/head.html' %}
+    {% block style %}
+    {% endblock %}
+  </head>
+<!-- BEGIN: Body-->
+
+  <body id="id_bar" class="vertical-layout vertical-menu-modern 2-columns   fixed-navbar " data-open="click"
+    data-menu="vertical-menu-modern" data-col="2-columns">
+
+    {% include 'staff/header.html' %}
+
+    <!-- BEGIN: Main Menu-->
+    <div class="main-menu menu-fixed menu-dark menu-accordion menu-shadow expan" data-scroll-to-active="true">
+      <div class="main-menu-content" style="margin-bottom: 40px; ">
+
+        <ul class="navigation navigation-main " id="main-menu-navigation" data-menu="menu-navigation"
+          style=" background-color:#033b4a; padding-bottom: 110px;">
+
+          <li class=" nav-item navigation-header {% block dashboard %} {% endblock %}">
+            <a href=""><i class="fa fa-home"></i><span class="menu-title">View Site</span></a>
+          </li>
+
+          <br>
+
+          <li class=" nav-item {% block index %} {% endblock %}">
+            <a href="{% url 'staff:index' %}">
+              <span class="menu-title">Dashboard </span>
+            </a>
+
+          </li>
+
+          
+          <li class=" nav-item {% block believer %} {% endblock %}">
+            <a href="#">
+              <span class="menu-title"><i class="fa fa-file"></i>Believers</span>
+            </a>
+            <ul class="menu-content">
+              <li class=" nav-item"><a href="{% url 'staff:believer_add' %}" class="menu-item"><span
+                    class="menu-title">Add a New believer</span></a></li>
+
+              <li class=" nav-item"><a href="{% url 'staff:believer_list' %}" class="menu-item"><span class="menu-title">List
+                    believers</span></a></li>
+
+
+              <li class=" nav-item"><a href="" target="blank" class="menu-item">
+                  <span class="menu-title"> believers on Site </span></a>
+              </li>
+            </ul>
+          </li>
+
+          <li class=" nav-item {% block education %} {% endblock %}">
+            <a href="#">
+              <span class="menu-title"><i class="fa fa-file"></i>Educations</span>
+            </a>
+            <ul class="menu-content">
+              <li class=" nav-item"><a href="{% url 'staff:education_add' %}" class="menu-item"><span
+                    class="menu-title">Add a New Education</span></a></li>
+
+              <li class=" nav-item"><a href="{% url 'staff:education_list' %}" class="menu-item"><span class="menu-title">List
+                    Educations</span></a></li>
+
+
+              <li class=" nav-item"><a href="" target="blank" class="menu-item">
+                  <span class="menu-title"> Educations on Site </span></a>
+              </li>
+            </ul>
+
+          </li>
+
+          <li class=" nav-item {% block events %} {% endblock %}">
+            <a href="#">
+              <span class="menu-title"><i class="fa fa-image"></i>Events</span>
+            </a>
+            <ul class="menu-content">
+              <li class=" nav-item"><a href=" {% url 'staff:event_add' %}" class="menu-item">
+                <span class="menu-title">Add a Events</span>
+                 </a>
+              </li>
+
+              <li class=" nav-item"><a href="{% url 'staff:event_list' %}" class="menu-item"><span class="menu-title">List
+                    Events</span></a>
+              </li>
+
+              <li class=" nav-item"><a href="" target="blank" class="menu-item">
+                  <span class="menu-title"> Events on Site </span></a>
+              </li>
+            </ul>
+          </li>
+
+          <li class=" nav-item {% block expense %} {% endblock %}">
+            <a href="#">
+              <span class="menu-title"><i class="fa fa-list"></i>Expense</span>
+            </a>
+            <ul class="menu-content">
+              <li class=" nav-item"><a href=" {% url 'staff:expense_add' %}" class="menu-item"><span class="menu-title">Add
+                Expense</span></a>
+              </li>
+
+              <li class=" nav-item"><a href="{% url 'staff:expense_list' %}" class="menu-item"><span class="menu-title">List
+                Expenses</span></a>
+              </li>
+
+              <li class=" nav-item"><a href="" target="blank" class="menu-item">
+                  <span class="menu-title"> Expenses on Site </span></a>
+              </li>
+            </ul>
+          </li>
+
+          <li class=" nav-item {% block faq %} {% endblock %}">
+            <a href="#">
+              <span class="menu-title"><i class="fa fa-file"></i>FAQs</span>
+            </a>
+            <ul class="menu-content">
+              <li class=" nav-item"><a href="{% url 'staff:faq_add' %}" class="menu-item"><span
+                    class="menu-title">Add a New frequently asked questions</span></a></li>
+
+              <li class=" nav-item"><a href="{% url 'staff:faq_list' %}" class="menu-item"><span class="menu-title">List
+                    frequently asked questions</span></a></li>
+              <li class=" nav-item"><a href="" target="blank" class="menu-item">
+                  <span class="menu-title"> FAQ on Site </span></a>
+              </li>
+            </ul>
+          </li>
+
+          <li class=" nav-item {% block fellowship %} {% endblock %}">
+            <a href="#">
+              <span class="menu-title"><i class="fa fa-file"></i>Fellowships</span>
+            </a>
+            <ul class="menu-content">
+              <li class=" nav-item"><a href="{% url 'staff:fellowship_add' %}" class="menu-item"><span
+                    class="menu-title">Add a New fellowship</span></a></li>
+
+              <li class=" nav-item"><a href="{% url 'staff:fellowship_list' %}" class="menu-item"><span class="menu-title">List
+                    fellowships</span></a></li>
+
+
+              <li class=" nav-item"><a href="" target="blank" class="menu-item">
+                  <span class="menu-title"> fellowships on Site </span></a>
+              </li>
+            </ul>
+          </li>
+          
+          <li class=" nav-item {% block group %} {% endblock %}">
+            <a href="#">
+              <span class="menu-title"><i class="fa fa-file"></i>Group</span>
+            </a>
+            <ul class="menu-content">
+              <li class=" nav-item"><a href="{% url 'staff:group_add' %}" class="menu-item"><span
+                    class="menu-title">Add a New Group</span></a></li>
+
+              <li class=" nav-item"><a href="{% url 'staff:group_list' %}" class="menu-item"><span class="menu-title">List
+                    groups</span></a></li>
+
+
+              <li class=" nav-item"><a href="" target="blank" class="menu-item">
+                  <span class="menu-title"> Groups on Site </span></a>
+              </li>
+            </ul>
+          </li>
+          
+          <li class=" nav-item {% block income %} {% endblock %}">
+            <a href="#">
+              <span class="menu-title"><i class="fa fa-list"></i>Income</span>
+            </a>
+            <ul class="menu-content">
+              <li class=" nav-item"><a href=" {% url 'staff:income_add' %}" class="menu-item"><span class="menu-title">Add
+                    News</span></a>
+              </li>
+
+              <li class=" nav-item"><a href="{% url 'staff:income_list' %}" class="menu-item"><span class="menu-title">List
+                    News</span></a>
+              </li>
+
+              <li class=" nav-item"><a href="" target="blank" class="menu-item">
+                  <span class="menu-title"> News on Site </span></a>
+              </li>
+            </ul>
+          </li>
+
+          <li class=" nav-item {% block inventory %} {% endblock %}">
+            <a href="#">
+              <span class="menu-title"><i class="fa fa-list"></i>Inventory</span>
+            </a>
+            <ul class="menu-content">
+              <li class=" nav-item"><a href=" {% url 'staff:inventory_add' %}" class="menu-item"><span class="menu-title">Add
+                Inventory</span></a>
+              </li>
+
+              <li class=" nav-item"><a href="{% url 'staff:inventory_list' %}" class="menu-item"><span class="menu-title">List
+                Inventory</span></a>
+              </li>
+
+              <li class=" nav-item"><a href="" target="blank" class="menu-item">
+                  <span class="menu-title"> Inventories on Site </span></a>
+              </li>
+            </ul>
+          </li>
+          
+          <li class=" nav-item {% block news %} {% endblock %}">
+            <a href="#">
+              <span class="menu-title"><i class="fa fa-list"></i>News</span>
+            </a>
+            <ul class="menu-content">
+              <li class=" nav-item"><a href=" {% url 'staff:news_add' %}" class="menu-item"><span class="menu-title">Add
+                    News</span></a>
+              </li>
+
+              <li class=" nav-item"><a href="{% url 'staff:news_list' %}" class="menu-item"><span class="menu-title">List
+                    News</span></a>
+              </li>
+
+              <li class=" nav-item"><a href="" target="blank" class="menu-item">
+                  <span class="menu-title"> News on Site </span></a>
+              </li>
+            </ul>
+          </li>
+
+          <li class=" nav-item {% block testimonial %} {% endblock %}">
+            <a href="#">
+              <span class="menu-title"><i class="fa fa-calendar"></i>Testimonials</span>
+            </a>
+            <ul class="menu-content">
+              <li class=" nav-item"><a href=" {% url 'staff:testimonial_add' %}" class="menu-item"><span class="menu-title">Add
+                    a New Testimonials</span></a>
+              </li>
+
+              <li class=" nav-item"><a href="{% url 'staff:testimonial_list' %}" class="menu-item"><span class="menu-title">List
+                    Testimonials</span></a>
+              </li>
+
+              <li class=" nav-item"><a href=" target="blank" class="menu-item">
+                  <span class="menu-title"> Testimonials on Site </span></a>
+              </li>
+            </ul>
+          </li> 
+        </ul>
+
+      </div>
+    </div>
+   <!--  END: Main Menu -->
+
+        <!-- BEGIN: Content-->
+    <div class="app-content content" style="background: #fff;">
+      <div class="content-wrapper">
+
+        <!--start message area -->
+        <div id="id_messages_area" class="content-header row" style="width: 100%;">
+
+          {% if messages %}
+            {% for m in messages %}
+              {% if 'success' in m.tags %}
+              <div class="alert alert-icon-right alert-success alert-dismissible col-md-12" role="alert">
+              {% elif 'warning' in m.tags %}
+              <div class="alert alert-icon-right alert-warning alert-dismissible col-md-12" role="alert">
+              {% elif 'error' in m.tags %}
+              <div class="alert alert-icon-right alert-danger alert-dismissible col-md-12" role="alert">
+              {% else %}
+              <div class="alert alert-icon-right alert-info alert-dismissible col-md-12" role="alert">
+              {% endif %}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+                <strong></strong> {{m}} <a href="#" class="alert-link"></a>
+              </div>
+
+            {% endfor %}
+          {% endif %}
+        </div>
+                  <!-- end message area -->
+
+
+        <div class="content-header-left col-md-6 col-12 mb-2">
+          <h3 class="content-header-title mb-0">{% block title %}{% endblock %}</h3>
+          <div class="row breadcrumbs-top">
+            <div class="breadcrumb-wrapper col-12">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'staff:index' %}">Home</a></li>
+
+                {% block breadcrumb %} {% endblock %}
+
+              </ol>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-body" style="box-shadow: 4px 4px 10px #888888; padding: 20px;">
+
+          {% block content %}
+
+          {% endblock %}
+
+        </div>
+
+      </div>
+    </div>
+              <!-- END: Content-->
+
+          <!-- BEGIN: Footer-->
+    <footer class="footer footer-static footer-light navbar-border">
+      <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2"><span
+          class="float-md-left d-block d-md-inline-block"> &copy; 2024 <a
+            class="text-bold-800 text-center grey darken-2" href="#" target="_blank">Delta</a></span><span
+          class="float-md-right d-none d-lg-block">Developed by DebolEngineering</span>
+      </p>
+    </footer>
+          <!-- END: Footer-->
+
+          <!-- BEGIN: Vendor JS-->
+    <script src="{% static 'staff/vendors/js/vendors.min.js' %}"></script>
+    <script src="{% static 'staff/vendors/js/tables/datatable/datatables.min.js' %}"></script>
+
+    <!-- BEGIN: Page Vendor JS-->
+    <script src="{% static 'staff/js/scripts/tables/datatables/datatable-basic.min.js' %}"></script>
+    <!-- END: Page Vendor JS-->
+
+    <script src="{% static 'staff/js/core/app-menu.min.js' %}"></script>
+    <script src="{% static 'staff/js/core/app.min.js' %}"></script>
+        <!-- END: Theme JS-->
+
+        <!-- BEGIN: Theme JS-->
+        <!-- END: Page JS-->
+    {% block js %}
+    {% endblock %}
+    <script src="{% static 'staff/js/scripts/compiled.min.js' %}"></script>
+
+
+
+
+  </body>
+<!-- END: Body-->
+
+</html>
